@@ -18,36 +18,32 @@ and also need to proved body:
 
 ### Usage on localhost
 
-` pip install -r requirements`
-
-` python main.py`
+```shell script
+pip install -r requirements
+python main.py
+```
 
 ### To deploy on heroku.
 #### First install heroku-cli
 
-on mac ` brew install heroku/brew/heroku `
+- ` brew install heroku/brew/heroku ` on mac.
 
-on linux ` sudo snap install heroku --classic `
+- ` sudo snap install heroku --classic ` on linux.
 
-#### Second step refresh autocomplete cache
+#### NEXT
+- Second step refresh autocomplete cache.
+- Third step login into heroku-cli.
+- Build heroku app.
+- Add buildpacks 
+- Push to the heroku app
 
-` heroku autocomplete --refresh-cache `
-
-#### Third step login into heroku-cli
-
-` heroku login`
-
-#### Build heroku app
-
-` heroku create`
-
-#### Add buildpacks 
-
-` heroku buildpacks:add --index 1 heroku-community/apt`
-
-#### Push to the heroku app
-
-` git push heroku master`
+```shell script
+heroku autocomplete --refresh-cache
+heroku login
+heroku create
+heroku buildpacks:add --index 1 heroku-community/apt
+git push heroku master
+```
 
 #### To keep track of activity of your app.
 
