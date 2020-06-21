@@ -2,6 +2,20 @@
 
 This is the backend of our application collaboration with a biomedical company. Aim of the project is to analyse the condition of Kidney by using this platform and a strip provided by company. Company will provide a medical strip which the user has to take an Image with our mobile app. Which will analyse the strip and based on the colour of the strip we'll try to analyse the condition of kidney.
 
+This app is deployed on [heroku](https://floating-retreat-64345.herokuapp.com/).
+
+## Reuqired fields
+
+To use above app you need to make a post request with parameters given as
+- ` name` field to specify users name.
+- ` age` field to specify users age.
+- ` sex` field to specify users sex.
+- ` contact_no` field to specify users contact number.
+
+and also need to proved body:
+- ` image` where we need to upload image of strip.
+
+
 ### Usage on localhost
 
 ` pip install -r requirements`
