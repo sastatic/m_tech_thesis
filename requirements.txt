@@ -1,0 +1,10 @@
+opencv-python
+numpy
+scikit-image
+flask
+flask-cors
+pymongo
+gunicorn
+sklearn
+matplotlib
+imutils
