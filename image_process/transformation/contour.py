@@ -2,9 +2,8 @@ import cv2
 import imutils
 
 class Contours:
-    def __init__(self, blurred_image):
-        self.blurred_image = blurred_image
-        self.edged_image = cv2.Canny(self.blurred_image, 75, 200)
+    def __init__(self, edged_image):
+        self.edged_image = edged_image
 
     def find_screen_contour(self):
         contours = self.find_contours()

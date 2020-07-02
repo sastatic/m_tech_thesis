@@ -12,10 +12,9 @@ class ImageTransformer:
 
 	def transform(self):
 		img_adapter = ImageAdapter(self.image_cv2_object)
-		contours = Contours(img_adapter.blurred_image)
+		contours = Contours(img_adapter.image_edges)
 		screen_contour_points = contours.find_screen_contour()
 		warped = self._four_point_transform(screen_contour_points.reshape(4, 2) * img_adapter.scaled_ratio)
-		print(self.image_path)
 		cv2.imwrite(self.image_path, warped)
 		del contours
 		del img_adapter
