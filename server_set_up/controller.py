@@ -7,10 +7,10 @@ def main(resource_path):
 	data = {}
 	patch_data_path = os.path.join(resource_path, 'patch_data.json')
 	if request.method == 'POST':
-		data['name'] = request.args.get('name')
-		data['age'] = request.args.get('age')
-		data['contact_no'] = request.args.get('contact_no')
-		data['sex'] = request.args.get('sex')
+		data['name'] = request.form['name']
+		data['age'] = request.form['age']
+		data['contact_no'] = request.form['contact_no']
+		data['sex'] = request.form['sex']
 		if 'image' in request.files:
 			img = request.files['image']
 			img_name = '_'.join([datetime.now().strftime('%Y%m%d%H%M%S'), data['age'], data['sex']]) + "." + img.filename.split('.')[1]
