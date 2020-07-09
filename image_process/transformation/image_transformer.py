@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from numpy.linalg import norm as dist
 from .image_adapter import ImageAdapter
 from .contour import Contours
 
@@ -26,8 +27,7 @@ class ImageTransformer:
 		warped = cv2.warpPerspective(self.image_cv2_object, m, (self.max_width, self.max_height))
 		return warped
 
-	@staticmethod
-	def _get_perspective_transformation_points(pts):
+	def _get_perspective_transformation_points(self, pts):
 		_sum = np.sum(pts, axis=1)
 		_dif = np.diff(pts, axis=1)
 		rect = np.zeros((4, 2), dtype="float32")
@@ -35,4 +35,6 @@ class ImageTransformer:
 		rect[1] = pts[np.argmin(_dif)]
 		rect[2] = pts[np.argmax(_dif)]
 		rect[3] = pts[np.argmax(_sum)]
+		if dist(rect[0] - rect[1]) > dist(rect[0] - rect[3]):
+			rect[3], rect[0], rect[1], rect[2] = rect[0], rect[1], rect[2], rect[3]
 		return rect
