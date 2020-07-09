@@ -27,7 +27,8 @@ class ImageTransformer:
 		warped = cv2.warpPerspective(self.image_cv2_object, m, (self.max_width, self.max_height))
 		return warped
 
-	def _get_perspective_transformation_points(self, pts):
+	@staticmethod
+	def _get_perspective_transformation_points(pts):
 		_sum = np.sum(pts, axis=1)
 		_dif = np.diff(pts, axis=1)
 		rect = np.zeros((4, 2), dtype="float32")
